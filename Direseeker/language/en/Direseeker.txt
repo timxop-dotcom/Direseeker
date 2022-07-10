@@ -1,0 +1,10 @@
+{
+	strings:
+	{
+		"DIRESEEKER_BOSS_BODY_NAME": "Direseeker",
+		"DIRESEEKER_BOSS_BODY_SUBTITLE": "Track and Kill",
+		"DIRESEEKER_BOSS_BODY_OUTRO_FLAVOR": "..and so it left, in search of new prey.",
+		"DIRESEEKER_SPAWN_WARNING": "<style=cWorldEvent>You hear a distant rumbling..</style>",
+		"DIRESEEKER_SPAWN_BEGIN": "<style=cWorldEvent>The rumbling grows loud.</style>"
+	}
+}
