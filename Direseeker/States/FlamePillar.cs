@@ -57,7 +57,8 @@ namespace DireseekerMod.States
 			}
 			base.PlayAnimation("Gesture, Override", "PrepFlamebreath", "PrepFlamebreath.playbackRate", FlamePillar.entryDuration);
 			this.subState = FlamePillar.SubState.Prep;
-			Util.PlaySound("DireseekerAttack", base.gameObject);
+			//Util.PlaySound("DireseekerAttack", base.gameObject);
+			Util.PlaySound("Play_magmaWorm_spawn_VO", base.gameObject);
 			bool active = NetworkServer.active;
 			if (active)
 			{

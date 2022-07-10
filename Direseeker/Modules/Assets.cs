@@ -24,8 +24,8 @@ namespace DireseekerMod.Modules
 				}
 			}
 
-			//Direseeker.DireseekerBank.bnk, Soundbank needs to be recompiled with latest WWISE?
-			using (Stream manifestResourceStream2 = Assembly.GetExecutingAssembly().GetManifestResourceStream("Direseeker.DiggerBank.bnk"))
+			//Doesn't work. Soundbank needs to be recompiled with latest WWISE?
+			using (Stream manifestResourceStream2 = Assembly.GetExecutingAssembly().GetManifestResourceStream("Direseeker.DireseekerBank.bnk"))
 			{
 				byte[] array = new byte[manifestResourceStream2.Length];
 				manifestResourceStream2.Read(array, 0, array.Length);

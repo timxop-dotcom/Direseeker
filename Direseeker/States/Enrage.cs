@@ -27,9 +27,9 @@ namespace DireseekerMod.States
 			{
 				base.characterBody.AddBuff(RoR2Content.Buffs.ArmorBoost);
 			}
-			this.roarStartPlayID = Util.PlaySound("DireseekerRoarStart", base.gameObject);
-			//this.roarStartPlayID = Util.PlayAttackSpeedSound(EntityStates.VagrantMonster.ChargeMegaNova.chargingSoundString, base.gameObject, this.attackSpeedStat);
+			//this.roarStartPlayID = Util.PlaySound("DireseekerRoarStart", base.gameObject);
 			base.PlayAnimation("Gesture, Override", "PrepFlamebreath", "PrepFlamebreath.playbackRate", this.entryDuration);
+			Util.PlaySound("Play_magmaWorm_spawn_VO", base.gameObject);
 		}
 
 		private void GrantItems()
@@ -67,11 +67,10 @@ namespace DireseekerMod.States
 			{
 				this.hasEnraged = true;
 				this.GrantItems();
-				AkSoundEngine.StopPlayingID(this.roarStartPlayID);
-				Util.PlaySound("DireseekerRage", base.gameObject);
-				Util.PlaySound("DireseekerRoar", base.gameObject);
+				///AkSoundEngine.StopPlayingID(this.roarStartPlayID);
+				//Util.PlaySound("DireseekerRage", base.gameObject);
+				//Util.PlaySound("DireseekerRoar", base.gameObject);
 				stoppedSound = true;
-				//Util.PlaySound(EntityStates.VagrantMonster.FireMegaNova.novaSoundString, base.gameObject);
 				Transform modelTransform = base.GetModelTransform();
 				bool flag2 = modelTransform;
 				if (flag2)
