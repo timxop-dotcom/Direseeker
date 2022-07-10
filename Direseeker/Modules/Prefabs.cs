@@ -40,7 +40,7 @@ namespace DireseekerMod.Modules
 			material.SetFloat("_EmPower", 50f);
 			componentInChildren.baseRendererInfos[0].defaultMaterial = material;
 			GameObject gameObject = Assets.mainAssetBundle.LoadAsset<GameObject>("DireHorn").InstantiateClone("DireseekerHorn", false);
-			GameObject gameObject2 = Assets.mainAssetBundle.LoadAsset<GameObject>("DireHornBroken").InstantiateClone("DireseekerHornBroken");
+			GameObject gameObject2 = Assets.mainAssetBundle.LoadAsset<GameObject>("DireHornBroken").InstantiateClone("DireseekerHornBroken", false);
 			GameObject gameObject3 = Assets.mainAssetBundle.LoadAsset<GameObject>("DireseekerRageFlame").InstantiateClone("DireseekerRageFlame", false);
 			GameObject gameObject4 = Assets.mainAssetBundle.LoadAsset<GameObject>("DireseekerBurstFlame").InstantiateClone("DireseekerBurstFlame", false);
 			ChildLocator componentInChildren2 = Prefabs.bodyPrefab.GetComponentInChildren<ChildLocator>();
