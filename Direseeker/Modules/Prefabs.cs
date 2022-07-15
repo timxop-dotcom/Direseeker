@@ -6,6 +6,7 @@ using R2API;
 using RoR2;
 using RoR2.CharacterAI;
 using UnityEngine;
+using UnityEngine.AddressableAssets;
 using UnityEngine.Rendering;
 
 namespace DireseekerMod.Modules
@@ -15,6 +16,13 @@ namespace DireseekerMod.Modules
 		public static void CreatePrefab()
 		{
 			Prefabs.bodyPrefab = LegacyResourcesAPI.Load<GameObject>("Prefabs/CharacterBodies/LemurianBruiserBody").InstantiateClone("DireseekerBody", true);
+
+			//Add DeathReward
+			//This causes all its drops to be replaced by the Perforator. Why?
+			/*GameObject WormPrefab = Addressables.LoadAssetAsync<GameObject>("RoR2/Base/MagmaWorm/MagmaWormBody.prefab").WaitForCompletion();
+			DeathRewards deathReward = Prefabs.bodyPrefab.GetComponent<DeathRewards>();
+			deathReward.bossDropTable = WormPrefab.GetComponent<DeathRewards>().bossDropTable;*/
+
 			UnityEngine.Object.Destroy(Prefabs.bodyPrefab.GetComponent<SetStateOnHurt>());
 			CharacterBody component = Prefabs.bodyPrefab.GetComponent<CharacterBody>();
 			component.name = "DireseekerBossBody";

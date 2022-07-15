@@ -8,7 +8,7 @@ namespace Direseeker
 {
 	[BepInDependency("com.bepis.r2api")]
 	[NetworkCompatibility(CompatibilityLevel.EveryoneMustHaveMod, VersionStrictness.EveryoneNeedSameModVersion)]
-	[BepInPlugin("com.rob.Direseeker", "Direseeker", "1.3.0")]
+	[BepInPlugin("com.rob.Direseeker", "Direseeker", "1.3.2")]
 	[R2APISubmoduleDependency(new string[]
 	{
 		"PrefabAPI",

@@ -48,6 +48,10 @@ namespace DireseekerMod.Modules
 		{
 			GameObject gameObject = Assets.direseekerEncounter.transform.GetChild(0).gameObject;
 			gameObject.AddComponent<NetworkIdentity>();
+
+			//Should fix the encounter not showing a healthbar in MP?
+			gameObject.RegisterNetworkPrefab();
+
 			ScriptedCombatEncounter scriptedCombatEncounter = gameObject.AddComponent<ScriptedCombatEncounter>();
 			Assets.direseekerEncounter.transform.GetChild(0).GetChild(1).Translate(0f, 1f, 0f);
 			scriptedCombatEncounter.spawns = new ScriptedCombatEncounter.SpawnInfo[]
