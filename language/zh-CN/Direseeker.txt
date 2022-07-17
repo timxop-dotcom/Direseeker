@@ -1,0 +1,10 @@
+{
+	strings:
+	{
+		"DIRESEEKER_BOSS_BODY_NAME": "深渊利莫里亚长者",
+		"DIRESEEKER_BOSS_BODY_SUBTITLE": "追杀",
+		"DIRESEEKER_BOSS_BODY_OUTRO_FLAVOR": "..所以它离开了，寻找新的猎物。",
+		"DIRESEEKER_SPAWN_WARNING": "<style=cWorldEvent>你听到远处的隆隆声..</style>",
+		"DIRESEEKER_SPAWN_BEGIN": "<style=cWorldEvent>隆隆声越来越大。</style>"
+	}
+}
