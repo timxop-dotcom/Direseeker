@@ -6,9 +6,10 @@ using R2API.Utils;
 
 namespace Direseeker
 {
+	[BepInDependency("com.Moffein.AccurateEnemies", BepInDependency.DependencyFlags.SoftDependency)]
 	[BepInDependency("com.bepis.r2api")]
 	[NetworkCompatibility(CompatibilityLevel.EveryoneMustHaveMod, VersionStrictness.EveryoneNeedSameModVersion)]
-	[BepInPlugin("com.rob.Direseeker", "Direseeker", "1.3.3")]
+	[BepInPlugin("com.rob.Direseeker", "Direseeker", "1.3.5")]
 	[R2APISubmoduleDependency(new string[]
 	{
 		"PrefabAPI",
@@ -18,9 +19,13 @@ namespace Direseeker
 	})]
 	public class DireseekerPlugin : BaseUnityPlugin
 	{
+		public static bool AccurateEnemiesLoaded = false;
+		public static bool AccurateEnemiesCompat = true;
+
 		public static PluginInfo pluginInfo;
 		public void Awake()
 		{
+			AccurateEnemiesLoaded = BepInEx.Bootstrap.Chainloader.PluginInfos.ContainsKey("com.Moffein.AccurateEnemies");
 			pluginInfo = Info;
 			Assets.PopulateAssets();
 			Tokens.RegisterLanguageTokens();

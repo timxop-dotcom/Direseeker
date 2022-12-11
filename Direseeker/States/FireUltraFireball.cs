@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Runtime.CompilerServices;
 using DireseekerMod.Components;
 using DireseekerMod.Modules;
 using EntityStates;
@@ -49,6 +50,11 @@ namespace DireseekerMod.States
 					}
 					Ray aimRay = base.GetAimRay();
 					float speedOverride = FireUltraFireball.projectileSpeed;
+					if (Direseeker.DireseekerPlugin.AccurateEnemiesLoaded && Direseeker.DireseekerPlugin.AccurateEnemiesCompat)
+                    {
+						aimRay = PredictAimRay(aimRay, speedOverride);
+                    }
+
 					float bonusYaw = (float)Mathf.FloorToInt((float)this.projectilesFired - (float)(FireUltraFireball.projectileCount - 1) / 2f) / (float)(FireUltraFireball.projectileCount - 1) * FireUltraFireball.totalYawSpread;
 					Vector3 forward = Util.ApplySpread(aimRay.direction, 0f, 0f, 1f, 1f, bonusYaw, 0f);
 					ProjectileManager.instance.FireProjectile(Projectiles.fireballPrefab, aimRay.origin, Util.QuaternionSafeLookRotation(forward), base.gameObject, this.damageStat * FireUltraFireball.damageCoefficient, FireUltraFireball.force, base.RollCrit(), DamageColorIndex.Default, null, speedOverride);
@@ -79,5 +85,26 @@ namespace DireseekerMod.States
 		private float fireDuration;
 		private int projectilesFired;
 		private DireseekerController direController;
+
+		[MethodImpl(MethodImplOptions.NoInlining | MethodImplOptions.NoOptimization)]
+		private Ray PredictAimRay(Ray aimRay, float speedOverride)
+        {
+			if (base.characterBody && !base.characterBody.isPlayerControlled)
+			{
+				Ray newAimRay;
+				HurtBox targetHurtbox = AccurateEnemies.Util.GetMasterAITargetHurtbox(base.characterBody.master);
+				if (speedOverride > 0f)
+				{
+					speedOverride = AccurateEnemies.AccurateEnemiesPlugin.GetProjectileSimpleModifiers(speedOverride);
+					newAimRay = AccurateEnemies.Util.PredictAimray(aimRay, base.GetTeam(), AccurateEnemies.AccurateEnemiesPlugin.basePredictionAngle, speedOverride, targetHurtbox);
+				}
+				else
+				{
+					newAimRay = AccurateEnemies.Util.PredictAimrayPS(aimRay, base.GetTeam(), AccurateEnemies.AccurateEnemiesPlugin.basePredictionAngle, Projectiles.fireballPrefab, targetHurtbox);
+				}
+				return newAimRay;
+			}
+			return aimRay;
+        }
 	}
 }

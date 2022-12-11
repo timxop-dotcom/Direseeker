@@ -30,6 +30,9 @@
     <Reference Include="0Harmony20">
       <HintPath>libs\BepInEx\0Harmony20.dll</HintPath>
     </Reference>
+    <Reference Include="AccurateEnemies">
+      <HintPath>libs\SoftDependencies\AccurateEnemies.dll</HintPath>
+    </Reference>
     <Reference Include="Assembly-CSharp">
       <HintPath>libs\Assembly-CSharp.dll</HintPath>
     </Reference>
