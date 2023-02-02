@@ -89,7 +89,7 @@ namespace DireseekerMod.States
 		[MethodImpl(MethodImplOptions.NoInlining | MethodImplOptions.NoOptimization)]
 		private Ray PredictAimRay(Ray aimRay, float speedOverride)
         {
-			if (base.characterBody && !base.characterBody.isPlayerControlled)
+			if (base.characterBody && !base.characterBody.isPlayerControlled && (AccurateEnemies.AccurateEnemiesPlugin.alwaysAllowBosses || !AccurateEnemies.AccurateEnemiesPlugin.eliteOnly || base.characterBody.isElite))
 			{
 				Ray newAimRay;
 				HurtBox targetHurtbox = AccurateEnemies.Util.GetMasterAITargetHurtbox(base.characterBody.master);
