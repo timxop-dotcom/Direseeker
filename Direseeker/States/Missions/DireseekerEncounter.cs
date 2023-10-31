@@ -19,22 +19,18 @@ namespace DireseekerMod.States.Missions.DireseekerEncounter
 		public override void FixedUpdate()
 		{
 			base.FixedUpdate();
-			bool active = NetworkServer.active;
-			if (active)
+			if (NetworkServer.active)
 			{
-				bool flag = base.fixedAge >= 2f;
-				if (flag)
+				if (base.fixedAge >= 2f)
 				{
 					this.RegisterButtons();
 				}
-				bool flag2 = this.hasRegisteredButtons;
-				if (flag2)
+				if (this.hasRegisteredButtons)
 				{
 					int num = 0;
 					for (int i = 0; i < this.buttonList.Count; i++)
 					{
-						bool isPressed = this.buttonList[i].isPressed;
-						if (isPressed)
+						if (this.buttonList[i].isPressedServer)
 						{
 							num++;
 						}

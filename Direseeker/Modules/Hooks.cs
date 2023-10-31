@@ -2,6 +2,7 @@
 using On.RoR2;
 using RoR2;
 using UnityEngine;
+using UnityEngine.Networking;
 using UnityEngine.SceneManagement;
 
 namespace DireseekerMod.Modules
@@ -39,8 +40,7 @@ namespace DireseekerMod.Modules
 
 			On.RoR2.SceneDirector.Start += (orig, self) =>
 			{
-				bool flag = SceneManager.GetActiveScene().name == "dampcavesimple";
-				if (flag)
+				if (NetworkServer.active && SceneManager.GetActiveScene().name == "dampcavesimple")
 				{
 					UnityEngine.Object.Destroy(GameObject.Find("HOLDER: Newt Statues and Preplaced Chests").transform.Find("GoldChest").gameObject);
 					for (int i = 0; i < this.buttonPosition.Length; i++)
@@ -48,8 +48,10 @@ namespace DireseekerMod.Modules
 						GameObject gameObject = UnityEngine.Object.Instantiate<GameObject>(Assets.direseekerButton);
 						gameObject.transform.position = this.buttonPosition[i];
 						gameObject.transform.rotation = Quaternion.Euler(this.buttonRotation[i]);
+						NetworkServer.Spawn(gameObject);
 					}
 					GameObject gameObject2 = UnityEngine.Object.Instantiate<GameObject>(Assets.direseekerEncounter);
+					NetworkServer.Spawn(Assets.direseekerEncounter);
 				}
 				orig(self);
 			};

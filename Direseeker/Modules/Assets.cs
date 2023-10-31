@@ -35,11 +35,17 @@ namespace DireseekerMod.Modules
 			Assets.bossPortrait = Assets.mainAssetBundle.LoadAsset<Sprite>("texDireseekerIcon").texture;
 			Assets.charPortrait = Assets.mainAssetBundle.LoadAsset<Sprite>("texDireseekerPlayerIcon").texture;
 			Assets.direseekerEncounter = Assets.mainAssetBundle.LoadAsset<GameObject>("BossEncounter");
+			Assets.direseekerEncounter.AddComponent<NetworkIdentity>();
+			Assets.direseekerEncounter.RegisterNetworkPrefab();    //Apparently this auto adds it to the contentpack?
+
 			Assets.direseekerButton = Assets.mainAssetBundle.LoadAsset<GameObject>("DireseekerButton");
 			Shader shader = LegacyResourcesAPI.Load<Shader>("Shaders/Deferred/hgstandard");
 			Material material = Assets.direseekerButton.GetComponentInChildren<SkinnedMeshRenderer>().material;
 			material.shader = shader;
 			Assets.direseekerButton.AddComponent<DireseekerButtonController>();
+			Assets.direseekerButton.AddComponent<NetworkIdentity>();
+			Assets.direseekerButton.RegisterNetworkPrefab();	//Apparently this auto adds it to the contentpack?
+
 			Assets.mainAssetBundle.LoadAsset<Material>("matPillarPrediction").shader = shader;
 			Assets.flamePillarPredictionEffect = Assets.LoadEffect("FlamePillarPredictionEffect", "");
 		}
