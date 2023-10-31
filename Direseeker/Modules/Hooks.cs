@@ -51,7 +51,7 @@ namespace DireseekerMod.Modules
 						NetworkServer.Spawn(gameObject);
 					}
 					GameObject gameObject2 = UnityEngine.Object.Instantiate<GameObject>(Assets.direseekerEncounter);
-					NetworkServer.Spawn(Assets.direseekerEncounter);
+					NetworkServer.Spawn(gameObject2);
 				}
 				orig(self);
 			};
