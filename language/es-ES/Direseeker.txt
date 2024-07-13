@@ -1,0 +1,13 @@
+{
+	strings:
+	{
+		"DIRESEEKER_BOSS_BODY_NAME": "Buscador Temible",
+		"DIRESEEKER_BOSS_BODY_SUBTITLE": "Rastrear y matar",
+		"DIRESEEKER_BOSS_BODY_OUTRO_FLAVOR": "..y así se ha ido. En busca de una nueva presa.",
+		"DIRESEEKER_SPAWN_WARNING": "<style=cWorldEvent>Oyes un estruendo en lo lejano..</style>",
+		"DIRESEEKER_SPAWN_BEGIN": "<style=cWorldEvent>El estruendo se hace fuerte.</style>",
+		"DIRESEEKER_BOSS_BODY_LORE" : "Las leyendas hablan de una bestia monstruosa que una vez vagó por los cuarteles subterráneos de Petrichor V.\n\nTemida por los supervivientes más valientes y los monstruos más desagradables, la enorme bestia no tenía rival. Vestía escamas de color rojo sangre, templadas por el fuego del infierno. Tenía ojos amarillos ardientes, con un resplandor tan intenso que hacía que la más grande de las criaturas se detuviera en seco. Tenía un aliento humeante, lo suficientemente caliente como para derretir el metal en un instante.\n\nSolo una vez fue detenido por un superviviente lo suficientemente fuerte como para matar a la Providencia en persona, se creyó que la bestia finalmente había encontrado a su rival\n\n<style=cIsHealth>Hasta que volvió a mostrar su rostro aterrador.
+		</style>",
+		"UNLOCKABLE_LOG_DIRESEEKER_BOSS_BODY" : "Registro de monstruo: Buscador Temible"
+	}
+}
